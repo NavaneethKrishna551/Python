@@ -70,16 +70,20 @@ def draw_arc():
     screen.mainloop()
 
 
-type_of_shape = input("what type of shape do you want polygon(type pg) arc(type arc) circle(cl)")
+type_of_shape = input("what type of shape do you want polygon(type pg) arc(type arc) circle(cl) \n if you want to test the software , type : test")
 
-if type_of_shape == "pg":
+if type_of_shape.lower() == "pg":
     draw_polygon()
 
-elif type_of_shape == "cl":
+elif type_of_shape.lower() == "cl":
     draw_circle()
 
-elif type_of_shape == "arc":
+elif type_of_shape.lower() == "arc":
     draw_arc()
+
+elif type_of_shape.lower() == "test":
+    sp.test()
+
 else:
     print("ERROR : 1 : Enter one from the list")
 
