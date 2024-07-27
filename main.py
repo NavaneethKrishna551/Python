@@ -63,7 +63,6 @@ def draw_arc():
             print("ERROR: 5.2 : Please enter a digit for the radius")
 
     screen = tu.Screen()
-    screen.screensize(500, 500)
     turt = tu.Turtle()
     sp.arc(turt, radius, angle)
     screen.update()
