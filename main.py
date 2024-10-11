@@ -80,7 +80,11 @@ match type_of_shape.lower():
         draw_arc()
     case "test":
         sp.test()
-    
+    case _:
+        print("ERROR : 1 : Enter one from the list")
+
 
 
 print("Program finished/Ended successfully")  # Print this message after successful run
+
+
