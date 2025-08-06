@@ -2,6 +2,10 @@
 #By: Navaneeth Krishna
 #NomoreAI - 2025 jan 1 
 #Anti Ai slop 
+#V1 - October 11, 2024
+#V2 - December 7, 2024
+#NO AI SINCE 2025
+
 
 
 import turtle
@@ -29,7 +33,7 @@ drawn_turtles = []
 def instruction():
     tutel.goto(0, 0)
     tutel.write("Go full screen", font=("calibri", 45, "normal"))
-    sleep(1.5)
+    sleep(1)
     tutel.clear()
 
 
@@ -158,6 +162,17 @@ def button_write(x, y):
         drawn_turtles.append(tutel) 
         usertext = ""  # Clear usertext after writing
 
+def button_test(x, y):
+    drawer_turtle = turtle.Turtle()
+    drawer_turtle.speed(0)
+    drawer_turtle.color("white")
+    drawer_turtle.penup()
+    drawer_turtle.goto(0,0)
+    drawer_turtle.pendown()
+    shapes.test(drawer_turtle)
+    drawer_turtle.hideturtle()
+    drawn_turtles.append(drawer_turtle)
+
 instruction()
 
 # Create buttons
@@ -168,10 +183,10 @@ button(button_shape_arc, "arc", 245, 250)
 button(button_write, "write", 185, 250)
 button(button_Help, "!Help!", -265,250)
 button(button_exit, "!EXIT!", -465, 250)
+button(button_test, "Demo Shapes", 125, 250)
 
 drawn_turtles.append(drawer)
 
-shapes.test()
 
 # Main loop for placing text
 running = True
@@ -181,3 +196,7 @@ while running:
     screen.listen()
 
 screen.mainloop()
+
+#200
+#06/08/2025 august - wednesday
+

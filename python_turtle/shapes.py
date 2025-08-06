@@ -30,16 +30,26 @@ def arc(t, r, angle):
         t.lt(step_angle)
 
 
-def test():
-    screen = tu.Screen()
-    screen.screensize(500,500)
+def test(t):
 
-    tutel = tu.Turtle()
+    circle(t,50)
+    t.pu()
+    t.goto(100,100)
+    t.pd()
+    polygon(t, 100, 3)
+    t.pu()
+    t.goto(100,-100)
+    t.pd()
+    polygon(t, 50, 5)
+    t.pu()
+    t.goto(-100, 100)
+    t.pd()
+    polygon(t, 30 ,8)
+    t.pu()
+    t.goto(-100, -100)
+    t.pd()
+    polygon(t, 35, 6)
 
-    circle(tutel,169.7)
 
-    while True:
-        screen.update()
-        screen.mainloop()
 
 
