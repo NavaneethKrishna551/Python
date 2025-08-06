@@ -1,5 +1,6 @@
 #shapes is a library which contains some basic shapes
 #by: Navaneeth Krishna
+#NomoreAI - 2025 jan 1 
 
 import turtle as tu
 import math

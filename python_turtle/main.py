@@ -1,3 +1,9 @@
+#Drawv2 official
+#By: Navaneeth Krishna
+#NomoreAI - 2025 jan 1 
+#Anti Ai slop 
+
+
 import turtle
 import random
 import math
@@ -6,12 +12,12 @@ from time import sleep
 #currently working and main features completed
 
 
-# Imports necessary libraries
-# import shapes (Uncomment this if you have a shapes module)
+
+
 
 screen = turtle.Screen()
 screen.bgcolor("black")
-screen.title("Navaneeth Krishna")
+screen.title("tutel thing")
 
 # Creates a window with given properties
 
@@ -22,25 +28,23 @@ drawn_turtles = []
 
 def instruction():
     tutel.goto(0, 0)
-    tutel.write("Go full screen", font=("calibri", 50, "normal"))
+    tutel.write("Go full screen", font=("calibri", 45, "normal"))
     sleep(1.5)
     tutel.clear()
 
-def writing():
-    global usertext
-    print("working")
-    usertext = screen.textinput("Writing...", "What do you want to write?")
 
 def get_unique_position():
     while True:
         pen_x = random.randrange(-300, 200)
         pen_y = random.randrange(-200, 300)
         position = (pen_x, pen_y)
+
         if all(math.dist(position, prev_pos) > 50 for prev_pos in used_positions):  # Ensure no overlap
             used_positions.append(position)
             return position
 
 def button(button_action, btn_text, btnloc_x, btnloc_y):
+
     btn = turtle.Turtle()
     btn.color("gray")
     btn.shape("square")
@@ -53,7 +57,6 @@ def button(button_action, btn_text, btnloc_x, btnloc_y):
     btn.onclick(button_action)
 
 # Key binding for writing
-screen.onkeypress(writing, "w")
 screen.listen()
 
 # Create a turtle for writing
@@ -79,6 +82,7 @@ def button_shape_polygon(x, y):
     position_x = int(screen.textinput("Drawing...", "What x position do you want your shape to be at?"))
     position_y = int(screen.textinput("Drawing...", "What y position do you want your shape to be at?"))
     drawer_turtle = turtle.Turtle()
+    drawer_turtle.speed(0)
     drawer_turtle.color("white")
     drawer_turtle.penup()
     drawer_turtle.goto(position_x, position_y)
@@ -92,6 +96,7 @@ def button_shape_circle(x, y):
     position_x = int(screen.textinput("Drawing...", "What x position do you want your shape to be at?"))
     position_y = int(screen.textinput("Drawing...", "What y position do you want your shape to be at?"))
     drawer_turtle = turtle.Turtle()
+    drawer_turtle.speed(0)
     drawer_turtle.color("white")
     drawer_turtle.penup()
     drawer_turtle.goto(position_x, position_y)
@@ -106,6 +111,7 @@ def button_shape_arc(x, y):
     position_x = int(screen.textinput("Drawing...", "What x position do you want your shape to be at?"))
     position_y = int(screen.textinput("Drawing...", "What y position do you want your shape to be at?"))
     drawer_turtle = turtle.Turtle()
+    drawer_turtle.speed(0)
     drawer_turtle.color("white")
     drawer_turtle.penup()
     drawer_turtle.goto(position_x, position_y)
@@ -114,11 +120,43 @@ def button_shape_arc(x, y):
     drawer_turtle.hideturtle()
     drawn_turtles.append(drawer_turtle)
 
+def button_Help(x,y):
+    pen = turtle.Turtle()
+    pen.hideturtle()
+    pen.goto(125,0)
+    pen.color("white")
+    pen.write(" press W to write \n press Clear to clear the screen \n press the polygon, circle or arc to draw ",font=("Calibri", 24, "normal"))
+    drawn_turtles.append(pen)
+
+def button_exit(x,y):
+
+    button_clear(0,0)
+    turtle.bye()
+
+    quit()
+
+
 def button_clear(x, y):
+
     for turtle in drawn_turtles:
         turtle.clear()
         turtle.hideturtle()
     drawn_turtles.clear()
+
+def button_write(x, y):
+        
+        print("working")
+
+        usertext = screen.textinput("Writing...", "What do you want to write?")
+        pen_x = int(screen.textinput("Writing...", "what x position do you want for this line"))
+        pen_y = int(screen.textinput("Writing...", "what y position do you want for this line ")) 
+
+        tutel.penup()
+        tutel.goto(pen_x, pen_y)
+        tutel.write(usertext, font=("Calibri", 24, "normal"))
+        tutel.pendown()
+        drawn_turtles.append(tutel) 
+        usertext = ""  # Clear usertext after writing
 
 instruction()
 
@@ -126,22 +164,18 @@ instruction()
 button(button_clear, "!CLEAR!", -365, 250)
 button(button_shape_polygon, "polygon", 365, 250)
 button(button_shape_circle, "circle", 305, 250)
-button(button_shape_arc, "arc", 255, 250)
+button(button_shape_arc, "arc", 245, 250)
+button(button_write, "write", 185, 250)
+button(button_Help, "!Help!", -265,250)
+button(button_exit, "!EXIT!", -465, 250)
 
 drawn_turtles.append(drawer)
+
+shapes.test()
 
 # Main loop for placing text
 running = True
 while running:
-    if usertext:  # Checks if usertext is not empty
-        pen_x = int(screen.textinput("Writing...", "what x position do you want for this line"))
-        pen_y = int(screen.textinput("Writing...", "what y position do you want for this line "))   
-        tutel.penup()
-        tutel.goto(pen_x, pen_y)
-        tutel.write(usertext, font=("Calibri", 24, "normal"))
-        tutel.pendown()
-        drawn_turtles.append(tutel) 
-        usertext = ""  # Clear usertext after writing
 
     screen.update()
     screen.listen()

@@ -85,6 +85,6 @@ match type_of_shape.lower():
 
 
 
-print("Program finished/Ended successfully")  # Print this message after successful run
+print("Program finished/Ended successfully")
 
 
